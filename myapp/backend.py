@@ -9,16 +9,16 @@ import re
 # Configure logging
 logging.basicConfig(filename='app.log', level=logging.ERROR)
 
-TESSERACT_CMD = r'C:\\Program Files\\Tesseract-OCR\\tesseract.exe'
+TESSERACT_CMD = r'path_to_tesseract.exe'
 pytesseract.pytesseract.tesseract_cmd = TESSERACT_CMD
-api = "AIzaSyBGssrEGK5MVjjWMtdGWoE9YNAUOuZypAs"
+api = "google_api_key_here"
 genai.configure(api_key=api)
 
 # ------------------- Pdf to Images Conversion ---------------------------
 def generate_images(pdf_path: str) -> list:
     """Converts a PDF file to a list of images."""
     try:
-        images = convert_from_path(pdf_path, poppler_path=r'C:\Users\sanke\OneDrive\Desktop\Programming\Handwriting-recognition\Release-24.07.0-0\poppler-24.07.0\Library\bin')  # Update path
+        images = convert_from_path(pdf_path, poppler_path=r'path_to_poppler_\bin_folder)  # Update path
         return images
     except Exception as e:
         logging.error(f"Error generating images from PDF: {e}")
